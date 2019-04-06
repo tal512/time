@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
-    image: myapp-app
+    image: time-app
     container_name: app
     restart: unless-stopped
     tty: true
@@ -22,7 +22,7 @@ services:
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
-    image: myapp-web
+    image: time-web
     container_name: web
     restart: unless-stopped
     tty: true
@@ -39,16 +39,16 @@ services:
     build:
       context: .
       dockerfile: docker/mysql/Dockerfile
-    image: myapp-db
+    image: time-db
     container_name: db
     restart: unless-stopped
     tty: true
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: myapp
+      MYSQL_DATABASE: time
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_USER: myapp
+      MYSQL_USER: time
       MYSQL_PASSWORD: secret
       SERVICE_NAME: mysql
       SERVICE_TAGS: dev
