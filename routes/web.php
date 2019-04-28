@@ -13,6 +13,7 @@
 
 Auth::routes(['verify' => true]);
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'throttle:60,1'])->group(function () {
     Route::get('/', 'DashboardController@index');
+    Route::resource('projects', 'ProjectController');
 });
