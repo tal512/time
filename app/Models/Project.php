@@ -27,8 +27,14 @@ class Project extends Model
      *
      * @var array
      */
-    protected $casts = [
-        'end_at' => 'datetime',
-        'start_at' => 'datetime',
+    protected $casts = [];
+
+    /**
+     * The attributes that should be converted to time instances.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'start_at', 'end_at',
     ];
 }
