@@ -42,10 +42,7 @@ RUN apt-get install -y nodejs
 # Add user for laravel application
 RUN getent group www || groupadd -g 1000 www
 RUN id -u www >/dev/null 2>&1 || useradd -u 1000 -ms /bin/bash -g www www
-
 RUN usermod -a -G 1000 www
-# Copy existing application directory permissions
-# COPY --chown=1000:www . /var/www
 
 # Change current user to www
 USER 1000
