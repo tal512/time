@@ -42,6 +42,14 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label for="name">Budget</label>
+                            <input type="number" name="budget" id="budget" class="form-control @error('budget') is-invalid @enderror" value="{{ old('budget') }}">
+                            @error('budget')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         @include('components.button.back', ['url' => route('projects.index')])
                         @include('components.button.save')
                     </form>

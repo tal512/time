@@ -12,7 +12,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'start_at', 'end_at',
+        'name', 'start_at', 'end_at', 'budget',
     ];
 
     /**
@@ -37,4 +37,24 @@ class Project extends Model
     protected $dates = [
         'start_at', 'end_at',
     ];
+
+    /**
+     * Times the project has.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function times()
+    {
+        return $this->hasMany(Time::class);
+    }
+
+    /**
+     * Get the sum of all durations of the project's times in hours.
+     *
+     * @return float
+     */
+    public function getUsedBudgetAttribute()
+    {
+        return round($this->times()->sum('duration') / 3600, 2);
+    }
 }

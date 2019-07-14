@@ -22,6 +22,7 @@
                             <th>Project</th>
                             <th>Start at</th>
                             <th>End at</th>
+                            <th>Budget</th>
                         </thead>
                         <tbody>
                             @foreach ($projects as $project)
@@ -34,6 +35,7 @@
                                 </td>
                                 <td>{{ $project->start_at->format('d.m.Y') }}</td>
                                 <td>{{ $project->end_at->format('d.m.Y') }}</td>
+                                <td>{{ $project->usedBudget }} / {{ $project->budget }}</td>
                             </tr>
                             @endforeach
                         </tbody>

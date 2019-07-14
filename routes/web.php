@@ -14,6 +14,7 @@
 Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified', 'throttle:60,1'])->group(function () {
-    Route::get('/', 'DashboardController@index');
+    Route::get('/', 'TimeController@index');
     Route::resource('projects', 'ProjectController');
+    Route::resource('times', 'TimeController');
 });

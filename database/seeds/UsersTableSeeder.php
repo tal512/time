@@ -32,5 +32,7 @@ class UsersTableSeeder extends Seeder
                 $newUser->save();
             }
         }
+
+        factory(User::class, 10)->create();
     }
 }

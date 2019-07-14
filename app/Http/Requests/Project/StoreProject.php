@@ -28,6 +28,7 @@ class StoreProject extends FormRequest
             'name' => 'required|string|max:255',
             'start_at' => 'required|date|before_or_equal:end_at',
             'end_at' => 'required|date|after_or_equal:start_at',
+            'budget' => 'required|integer',
         ];
     }
 }
